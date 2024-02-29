@@ -55,7 +55,7 @@ public class Juego {
 
     //Genera una combinación teniendo en cuenta la cantidad según el nivel y entre cuantos colores puede elegir
     //La combinación no tiene colores repetidos
-    private void crearCombinacion() {
+    void crearCombinacion() {
         Random aleatorio = new Random(System.currentTimeMillis());
         int contador = 0;
         while (contador < this.nivel) {
@@ -66,24 +66,6 @@ public class Juego {
             }
         }
     }
-
-    //Comprueba un intento introducido por el usuario, si la cantidad de colores coincide con el nivel
-    //añade al mapa de intentos la combinación introducida y la manda comprobar.
-    //@param recibe una lista separada por coma de los colores (números)
-    public void hacerIntento(String linea) {
-        List<Integer> listaIntento = new ArrayList<>();
-        for (String val : linea.split(",")) {
-            listaIntento.add(Integer.valueOf(val));
-        }
-        //comprobar que la respuesta tiene los valores adecuados en cantidad
-        if (listaIntento.size() == this.nivel) {
-            int intento = this.intentos.size() + 1;
-            this.intentos.put(intento, listaIntento);
-            comprobarCombinacion(intento);
-        }
-
-    }
-
 
     //Comprueba la combinación para un intento determinado del mapa de combinaciones
     public void comprobarCombinacion(int intento) {
@@ -111,15 +93,6 @@ public class Juego {
             System.out.println("Has llegado al final de los intentos.");
             this.setIniciado(false);
         }
-    }
-
-    public void colores() {
-        String[] color = new String[3];
-        color[1] = "Amarillo";
-        color[2] = "Rojo";
-        color[3] = "Azul";
-        color[4] = "Verde";
-
     }
 
 }

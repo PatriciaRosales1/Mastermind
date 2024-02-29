@@ -7,7 +7,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Aplicación extends Application {
+public class Aplicacion extends Application {
+    private ControladorMastermind controlador = new ControladorMastermind();
+    private Juego juego;
+
     @Override
     public void start(Stage stage) throws IOException {
         //Crea una variable llamada vista que lee el fichero fxml
@@ -18,6 +21,7 @@ public class Aplicación extends Application {
         stage.setTitle("Mastermind");
         stage.setScene(scene);
         stage.show();
+
     }
 
     public static void main(String[] args) {
@@ -25,15 +29,4 @@ public class Aplicación extends Application {
     }
 
 
-    /*public static void main(String[] args) {
-        Juego juego=new Juego(4,6,6);  //creamos el juego con sus parámetros nivel, colore, limite intentos
-        System.out.println(juego);
-        Scanner sc=new Scanner(System.in);
-        //mientras el juego no termina hacemos intentos
-        while(juego.isIniciado()){
-            System.out.println("Intento " + juego.intentoActual());
-            String linea=sc.nextLine(); //Pedimos la secuencia a probar (n,n,n,n,...)
-            juego.hacerIntento(linea);
-        }
-    }*/
 }
